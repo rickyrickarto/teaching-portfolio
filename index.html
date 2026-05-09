@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eric Griswold · Teaching Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ff-heading:'Source Serif 4',serif;
+  --ff-body:'DM Sans',sans-serif;
+  --accent:#1D9E75;
+  --accent-light:#E1F5EE;
+  --text-primary:#1a1a1a;
+  --text-secondary:#6b6b6b;
+  --bg-primary:#ffffff;
+  --bg-secondary:#f7f7f5;
+  --border:#e5e5e3;
+}
+body{
+  font-family:var(--ff-body);
+  color:var(--text-primary);
+  line-height:1.7;
+  background:var(--bg-primary);
+}
+.container{
+  max-width:720px;
+  margin:0 auto;
+  padding:0 1.5rem;
+}
+.hero{
+  padding:3rem 0 2.5rem;
+  border-bottom:1px solid var(--border);
+}
+.hero-inner{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+}
+.avatar{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:var(--accent-light);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--ff-heading);
+  font-size:28px;
+  font-weight:500;
+  color:var(--accent);
+  flex-shrink:0;
+}
+.hero h1{
+  font-family:var(--ff-heading);
+  font-size:26px;
+  font-weight:500;
+  margin-bottom:4px;
+}
+.hero p{
+  font-size:14px;
+  color:var(--text-secondary);
+}
+.hero .contact{
+  font-size:13px;
+  color:var(--accent);
+  margin-top:6px;
+}
+.hero .contact i{
+  font-size:14px;
+  vertical-align:-1px;
+  margin-right:4px;
+}
+.nav{
+  display:flex;
+  gap:1.5rem;
+  margin-top:1.5rem;
+  padding-bottom:1rem;
+  border-bottom:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.nav a{
+  font-size:13px;
+  color:var(--text-secondary);
+  text-decoration:none;
+  padding:6px 0;
+  cursor:pointer;
+  transition:color 0.2s;
+}
+.nav a:hover,.nav a.active{
+  color:var(--accent);
+}
+.nav a.active{
+  border-bottom:2px solid var(--accent);
+}
+.section{
+  padding:2.5rem 0;
+  border-bottom:1px solid var(--border);
+}
+.section:last-of-type{
+  border-bottom:none;
+}
+.section-label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:var(--accent);
+  margin-bottom:0.5rem;
+}
+.section h2{
+  font-family:var(--ff-heading);
+  font-size:22px;
+  font-weight:500;
+  margin-bottom:1rem;
+}
+.section p{
+  font-size:14px;
+  color:var(--text-secondary);
+  margin-bottom:1rem;
+}
+.card-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:1rem;
+}
+.card{
+  background:var(--bg-secondary);
+  border-radius:12px;
+  padding:1rem 1.25rem;
+}
+.card .label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--text-secondary);
+  margin-bottom:4px;
+}
+.card .value{
+  font-size:15px;
+  font-weight:500;
+}
+.card .sub{
+  font-size:13px;
+  color:var(--text-secondary);
+  margin-top:2px;
+}
+.philosophy-preview{
+  background:var(--bg-secondary);
+  border-radius:12px;
+  padding:1.5rem;
+  margin-top:1rem;
+  font-size:14px;
+  color:var(--text-secondary);
+  line-height:1.8;
+  font-style:italic;
+  font-family:var(--ff-heading);
+}
+.philosophy-full{
+  display:none;
+  margin-top:1rem;
+  font-size:14px;
+  color:var(--text-secondary);
+  line-height:1.8;
+}
+.philosophy-full.visible{
+  display:block;
+}
+.philosophy-full p{
+  margin-bottom:1rem;
+}
+.toggle-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:1rem;
+  font-size:13px;
+  color:var(--accent);
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-family:var(--ff-body);
+  padding:0;
+}
+.toggle-btn:hover{
+  text-decoration:underline;
+}
+.rec-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:1rem;
+}
+.rec-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:var(--bg-secondary);
+  border-radius:12px;
+  padding:1rem 1.25rem;
+}
+.rec-avatar{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:var(--accent-light);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  font-weight:500;
+  color:var(--accent);
+  flex-shrink:0;
+}
+.rec-info .name{
+  font-size:14px;
+  font-weight:500;
+}
+.rec-info .role{
+  font-size:12px;
+  color:var(--text-secondary);
+}
+.lesson-card{
+  background:var(--bg-secondary);
+  border-radius:12px;
+  padding:1.25rem;
+  margin-top:1rem;
+}
+.lesson-card h3{
+  font-size:15px;
+  font-weight:500;
+  margin-bottom:4px;
+}
+.lesson-card .meta{
+  font-size:12px;
+  color:var(--text-secondary);
+  margin-bottom:8px;
+}
+.lesson-card .desc{
+  font-size:13px;
+  color:var(--text-secondary);
+}
+.tag{
+  display:inline-block;
+  font-size:11px;
+  background:var(--accent-light);
+  color:var(--accent);
+  padding:2px 10px;
+  border-radius:8px;
+  margin-right:6px;
+  margin-top:6px;
+}
+.download-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:1rem;
+  background:var(--bg-secondary);
+  border-radius:12px;
+  padding:1rem 1.25rem;
+  text-decoration:none;
+  color:var(--text-primary);
+  transition:background 0.2s;
+}
+.download-card:hover{
+  background:var(--accent-light);
+}
+.download-card i{
+  font-size:20px;
+  color:var(--accent);
+}
+.download-card .value{
+  font-size:14px;
+  font-weight:500;
+}
+.download-card .sub{
+  font-size:12px;
+  color:var(--text-secondary);
+}
+.footer{
+  padding:2.5rem 0 2rem;
+  text-align:center;
+  font-size:12px;
+  color:var(--text-secondary);
+}
+@media(max-width:600px){
+  .hero-inner{flex-direction:column;text-align:center}
+  .card-grid{grid-template-columns:1fr}
+  .nav{justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="avatar">EG</div>
+      <div>
+        <h1>Eric Griswold</h1>
+        <p>Physics teacher candidate &middot; 10th/11th grade</p>
+        <p class="contact">
+          <i class="ti ti-mail"></i>your.email@email.com
+          &nbsp;&nbsp;
+          <i class="ti ti-map-pin"></i>San Diego, CA
+        </p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#about" class="active">About</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#resume">Resume</a>
+      <a href="#lessons">Lesson plans</a>
+      <a href="#recommendations">Recommendations</a>
+    </nav>
+  </div>
+
+  <div class="section" id="about">
+    <div class="section-label">About</div>
+    <h2>Sharing the beauty in the details of our natural world</h2>
+    <p>I'm a physics teacher candidate passionate about helping students see the world through a scientific lens. I believe physics isn't just formulas and problem sets &mdash; it's the framework for understanding why everything around us works the way it does. My goal is to make the content accessible, relevant, and genuinely interesting to every student in the room.</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="label">Credential</div>
+        <div class="value">Single subject physics</div>
+      </div>
+      <div class="card">
+        <div class="label">Placement</div>
+        <div class="value">10th/11th grade physics</div>
+      </div>
+      <div class="card">
+        <div class="label">Focus areas</div>
+        <div class="value">Inquiry-based learning</div>
+        <div class="sub">Equity &middot; formative assessment</div>
+      </div>
+      <div class="card">
+        <div class="label">Program</div>
+        <div class="value">Your university here</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="philosophy">
+    <div class="section-label">Teaching philosophy</div>
+    <h2>Every student deserves to feel like physics belongs to them</h2>
+    <div class="philosophy-preview">"The thing that drives me as a teacher is wanting to share the inherent beauty that lies in the details of our natural world and universe. Physics isn't just formulas and problem sets &mdash; it's the framework for understanding why everything around us works the way it does..."</div>
+    <div class="philosophy-full" id="philosophy-full">
+      <p>The thing that drives me as a teacher is wanting to share the inherent beauty that lies in the details of our natural world and universe. Physics isn't just formulas and problem sets &mdash; it's the framework for understanding why everything around us works the way it does, from the heat radiating off a sidewalk to the light bending through a glass of water. My goal is for students to not just learn physics content, but to actually start seeing the world through that lens and feel capable of investigating it on their own.</p>
+      <p>In terms of student learning goals, I want my students to leave my class with three things: a solid conceptual understanding of core physics principles, the ability to design and carry out investigations using real data, and the confidence to ask questions and figure things out even when the answer isn't obvious. Physics can be intimidating, especially for students who have been told they're "not math people," so building that confidence and sense of agency is just as important to me as the content itself.</p>
+      <p>To get there, I lean toward inquiry-based, student-led approaches. I want students doing the sensemaking, not just receiving information. That means anchoring lessons in real phenomena &mdash; things students can observe and wonder about &mdash; and letting their questions drive the investigation. In practice, this looks like small group discussions where students analyze data, propose explanations, and critique each other's reasoning before we build toward a class-level understanding. I've seen firsthand that starting in smaller groups helps students who are more shy get a chance to work through their ideas before presenting to the larger class. I also think engineering design challenges grounded in real community problems make the physics feel purposeful rather than abstract.</p>
+      <p>For assessment, I'm committed to formative assessment as an ongoing process, not just a test at the end of a unit. I want to get better at eliciting evidence mid-lesson through targeted questions and quick checks so I can adjust instruction in real time rather than finding out after the fact what students missed. I also want students to take ownership of their learning through self-assessment &mdash; regularly evaluating their own work against clear success criteria so they're not just relying on me to tell them where they stand. The goal is for assessment to feel like part of the learning, not something separate from it.</p>
+      <p>Creating an inclusive classroom is not something I think about as a separate piece &mdash; it has to be woven into everything. My experience with curriculum like the ECUITY project showed me how powerful it is when science content connects directly to equity and students' lived experiences. I want my physics classroom to be a place where consistent, intentional efforts are made to ensure every student has a voice, not just the ones who naturally speak up. That means using scaffolds, building respectful discussion norms, and being honest with myself about who is and isn't participating. Physics has historically felt exclusive to a lot of students, and I want to actively work against that by making the content accessible, relevant, and genuinely interesting to everyone in the room.</p>
+      <p>Ultimately, I want my students to walk out of my class knowing that physics belongs to them &mdash; that the universe is something they can explore, question, and understand.</p>
+    </div>
+    <button class="toggle-btn" id="toggle-philosophy" onclick="togglePhilosophy()">
+      <i class="ti ti-chevron-down" id="toggle-icon"></i> Read full philosophy
+    </button>
+  </div>
+
+  <div class="section" id="resume">
+    <div class="section-label">Resume</div>
+    <h2>Experience and education</h2>
+    <p>Download my resume below or view it in a new tab.</p>
+    <a class="download-card" href="#" title="Download resume">
+      <i class="ti ti-download"></i>
+      <div>
+        <div class="value">Eric_Griswold_Resume.pdf</div>
+        <div class="sub">Click to download</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="section" id="lessons">
+    <div class="section-label">Lesson plans</div>
+    <h2>Lessons I've written and taught</h2>
+    <div class="lesson-card">
+      <h3>Your lesson title here</h3>
+      <div class="meta">Grade 10 &middot; Physics &middot; 55 min</div>
+      <div class="desc">Brief description of the lesson, what students investigated, and what they figured out. Replace this with your actual lesson summary.</div>
+      <div style="margin-top:8px">
+        <span class="tag">NGSS-aligned</span>
+        <span class="tag">Inquiry-based</span>
+        <span class="tag">Formative assessment</span>
+      </div>
+    </div>
+    <p style="margin-top:1rem;font-size:13px;color:var(--text-secondary)">Add additional lesson plans as needed. You can link to Google Docs or embed PDFs.</p>
+  </div>
+
+  <div class="section" id="recommendations">
+    <div class="section-label">Letters of recommendation</div>
+    <h2>Recommendations</h2>
+    <div class="rec-list">
+      <div class="rec-item">
+        <div class="rec-avatar">R1</div>
+        <div class="rec-info">
+          <div class="name">Recommender name</div>
+          <div class="role">Title &middot; School/Organization</div>
+        </div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-avatar">R2</div>
+        <div class="rec-info">
+          <div class="name">Recommender name</div>
+          <div class="role">Title &middot; School/Organization</div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:1rem;font-size:13px;color:var(--text-secondary)">Link or embed your recommendation letters here as PDFs.</p>
+  </div>
+
+  <div class="footer">
+    <p>Eric Griswold &middot; Teaching Portfolio &middot; 2026</p>
+  </div>
+
+</div>
+
+<script>
+function togglePhilosophy(){
+  var el=document.getElementById('philosophy-full');
+  var btn=document.getElementById('toggle-philosophy');
+  var icon=document.getElementById('toggle-icon');
+  if(el.classList.contains('visible')){
+    el.classList.remove('visible');
+    btn.innerHTML='<i class="ti ti-chevron-down" id="toggle-icon"></i> Read full philosophy';
+  }else{
+    el.classList.add('visible');
+    btn.innerHTML='<i class="ti ti-chevron-up" id="toggle-icon"></i> Collapse';
+  }
+}
+document.querySelectorAll('.nav a').forEach(function(a){
+  a.addEventListener('click',function(e){
+    document.querySelectorAll('.nav a').forEach(function(x){x.classList.remove('active')});
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
